@@ -2,7 +2,7 @@ import React from 'react';
 
 
 export class PoemForm extends React.Component{
-
+    
     state = {
         name: '',
         content: ''
@@ -12,8 +12,14 @@ export class PoemForm extends React.Component{
 
     setContent = e => this.setState({ content: e.target.value })
 
-    handleSubmit = () => {
+    handleSubmit = (e) => {
         // What should we do here?
+        let p = {
+            index: this.props.poems.length + 1,
+            name: this.state.name,
+            content: this.state.content
+        }
+        this.props.updatePoems(p)
     }
 
     render(){
